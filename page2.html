@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, Sania</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* Basic Reset and Body Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000; /* Dark background */
+      color: #ff70d9; /* Pink text color */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh; /* Ensure it takes full viewport height */
+      text-align: center;
+      padding: 20px; /* Add some padding around the content */
+      overflow-x: hidden; /* Prevent horizontal scroll */
+      position: relative; /* For particle animation and sparkle container */
+    }
+
+    /* Particle Animation (Existing background particles) */
+    .particle {
+      position: absolute;
+      background-color: #ff70d9; /* Pink particles */
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      opacity: 0;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+      }
+      25% {
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-100vh) translateX(50vw) scale(1.2);
+        opacity: 0.5;
+      }
+      75% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* Adjust animation delay for each particle */
+    .particle:nth-child(1) { animation-delay: 0s; left: 10%; top: 80%; }
+    .particle:nth-child(2) { animation-delay: 1s; left: 25%; top: 60%; }
+    .particle:nth-child(3) { animation-delay: 2s; left: 40%; top: 90%; }
+    .particle:nth-child(4) { animation-delay: 3s; left: 55%; top: 70%; }
+    .particle:nth-child(5) { animation-delay: 4s; left: 70%; top: 85%; }
+    .particle:nth-child(6) { animation-delay: 5s; left: 85%; top: 50%; }
+    .particle:nth-child(7) { animation-delay: 0.5s; left: 5%; top: 40%; }
+    .particle:nth-child(8) { animation-delay: 1.5s; left: 20%; top: 20%; }
+    .particle:nth-child(9) { animation-delay: 2.5s; left: 35%; top: 5%; }
+    .particle:nth-child(10) { animation-delay: 3.5s; left: 50%; top: 30%; }
+    .particle:nth-child(11) { animation-delay: 4.5s; left: 65%; top: 15%; }
+    .particle:nth-child(12) { animation-delay: 5.5s; left: 80%; top: 45%; }
+
+
+    /* Header Section */
+    .header-section {
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+
+    .header-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 0 0 20px #ff70d9;
+      margin-bottom: 10px;
+    }
+
+    .header-section p {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #ff9de2;
+    }
+
+    /* Favorite Moments Section */
+    .moments-section {
+      margin-bottom: 40px;
+      width: 100%;
+      max-width: 1200px; /* Increased max-width for larger cards */
+    }
+
+    .moments-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #ff70d9;
+      text-shadow: 0 0 10px #ff70d9;
+    }
+
+    .image-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 25px; /* Slightly increased space between images */
+      flex-wrap: wrap; /* Allow images to wrap on smaller screens */
+    }
+
+    /* Default image card (portrait orientation) */
+    .image-card {
+      background-color: #1a001a; /* Darker background for cards */
+      border: 2px solid #ff70d9; /* Pink border */
+      border-radius: 15px;
+      padding: 10px;
+      box-shadow: 0 0 20px rgba(255, 112, 217, 0.5); /* Pink glow effect */
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer; /* Indicate clickable */
+      width: 220px; /* Larger Portrait width */
+      height: 300px; /* Larger Portrait height */
+      display: flex; /* Use flex to center image within the padding */
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* Ensure image doesn't spill out */
+    }
+
+    /* Style for landscape image cards */
+    .image-card.landscape {
+      width: 350px; /* Larger Landscape width */
+      height: 240px; /* Larger Landscape height */
+    }
+
+    .image-card:hover {
+      transform: translateY(-10px); /* Lift on hover */
+    }
+
+    .image-card img {
+      width: 100%; /* Image fills the card's content area */
+      height: 100%; /* Image fills the card's content area */
+      object-fit: cover; /* Crop to fill the frame */
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* Why You Matter Section */
+    .why-you-matter-section {
+      margin-bottom: 40px;
+      width: 100%;
+      max-width: 900px; /* Increased max-width */
+      border: 2px solid #ff70d9;
+      border-radius: 25px;
+      padding: 25px;
+      background-color: #0d000d; /* Even darker background */
+      box-shadow: 0 0 25px rgba(255, 112, 217, 0.7);
+      position: relative;
+    }
+
+    .why-you-matter-section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ff70d9;
+      margin-bottom: 15px;
+      text-shadow: 0 0 12px #ff70d9;
+    }
+
+    .why-you-matter-section #whyMatterText {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ff9de2;
+      margin-bottom: 0; /* Remove default paragraph margin */
+      min-height: 100px; /* Ensure enough space for text to prevent layout shifts */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease-in-out; /* Smooth fade effect */
+    }
+
+    /* Message for You Section */
+    .message-section {
+      width: 100%;
+      max-width: 1000px; /* Increased max-width */
+      border-top: 2px solid #ff70d9; /* Top border */
+      padding-top: 30px;
+      margin-top: 30px;
+    }
+
+    .message-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ff70d9;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ff70d9;
+    }
+
+    .message-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #ff9de2;
+    }
+
+    /* Flower/Rain Animation */
+    .flower-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Allow clicks to pass through */
+      z-index: 9999; /* Ensure flowers are on top */
+      overflow: hidden; /* Hide flowers outside the viewport */
+    }
+
+    .flower {
+      position: absolute;
+      background-color: #ff70d9; /* Pink color for flowers */
+      border-radius: 50%; /* Make them circular */
+      opacity: 0;
+      animation: flower-rain 3s forwards; /* Animation duration */
+    }
+
+    @keyframes flower-rain {
+      0% {
+        transform: translateY(-50px) scale(0.5); /* Start above viewport, small */
+        opacity: 0;
+      }
+      20% {
+        opacity: 1; /* Fully visible */
+      }
+      100% {
+        transform: translateY(100vh) scale(1.2); /* Fall to bottom, slightly larger */
+        opacity: 0; /* Fade out at the bottom */
+      }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1024px) { /* New breakpoint for larger tablets/smaller desktops */
+      .moments-section {
+        max-width: 900px;
+      }
+      .image-card {
+        width: 200px;
+        height: 280px;
+      }
+      .image-card.landscape {
+        width: 300px;
+        height: 200px;
+      }
+      .why-you-matter-section {
+        max-width: 800px;
+      }
+      .message-section {
+        max-width: 900px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .header-section p {
+        font-size: 1.1rem;
+      }
+
+      .moments-section h2,
+      .why-you-matter-section h2,
+      .message-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .image-gallery {
+        flex-direction: column; /* Stack images vertically on smaller screens */
+        align-items: center;
+      }
+
+      /* Responsive dimensions for portrait cards */
+      .image-card {
+        width: 180px;
+        height: 250px;
+      }
+      /* Responsive dimensions for landscape cards */
+      .image-card.landscape {
+        width: 250px;
+        height: 180px;
+      }
+      .why-you-matter-section,
+      .message-section {
+        padding: 20px;
+      }
+
+      .why-you-matter-section #whyMatterText,
+      .message-section p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-section h1 {
+        font-size: 2rem;
+      }
+
+      .header-section p {
+        font-size: 1rem;
+      }
+
+      .moments-section h2,
+      .why-you-matter-section h2,
+      .message-section h2 {
+        font-size: 1.5rem;
+      }
+
+      /* Responsive dimensions for portrait cards */
+      .image-card {
+        width: 150px;
+        height: 220px;
+      }
+      /* Responsive dimensions for landscape cards */
+      .image-card.landscape {
+        width: 220px;
+        height: 150px;
+      }
+      .why-you-matter-section,
+      .message-section {
+        padding: 15px;
+      }
+
+      .why-you-matter-section #whyMatterText,
+      .message-section p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particle background effect -->
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+
+  <!-- Container for falling flowers -->
+  <div class="flower-container" id="flowerContainer"></div>
+
+
+  <!-- Header Section -->
+  <section class="header-section">
+    <h1>Welcome to 20s babygirl <span style="color: #ff0000;">&#10084;</span></h1>
+    <p>You are truly special in my life.</p>
+  </section>
+
+  <!-- Our Favorite Moments Section -->
+  <section class="moments-section">
+    <h2>Our Favorite Moments</h2>
+    <div class="image-gallery">
+      <div class="image-card landscape">
+        <!-- Image 1: Landscape card -->
+        <img src="assets/Pic1.jpg" alt="Favorite Moment 1" onerror="this.onerror=null; this.src='https://placehold.co/350x240/1a001a/ff70d9?text=Error';"/>
+      </div>
+      <div class="image-card">
+        <!-- Image 2: Portrait card -->
+        <img src="assets/pic2.jpg" alt="Favorite Moment 2" onerror="this.onerror=null; this.src='https://placehold.co/220x300/1a001a/ff70d9?text=Error';"/>
+      </div>
+      <div class="image-card landscape">
+        <!-- Image 3: Landscape card -->
+        <img src="assets/pic3.jpg" alt="Favorite Moment 3" onerror="this.onerror=null; this.src='https://placehold.co/350x240/1a001a/ff70d9?text=Error';"/>
+      </div>
+      <div class="image-card">
+        <!-- Image 4: Portrait card -->
+        <img src="assets/pic4.jpg" alt="Favorite Moment 4" onerror="this.onerror=null; this.src='https://placehold.co/220x300/1a001a/ff70d9?text=Error';"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why You Matter Section -->
+  <section class="why-you-matter-section">
+    <h2>Why You Matter <span style="color: #ff0000;">&#10084;</span></h2>
+    <div id="whyMatterText">
+      <!-- Text will be dynamically inserted here by JavaScript -->
+    </div>
+  </section>
+
+  <!-- A Message for You Section -->
+  <section class="message-section">
+    <h2>A Message for You</h2>
+    <p>Life feels lighter and brighter when you're around. You make every moment beautiful. Here's to all the smiles and memories still to come. Happy Birthday again <span style="color: #ff0000;">&#10084;</span></p>
+  </section>
+
+  <script>
+    // Array of reasons for "Why You Matter"
+    const reasons = [
+      "Because someone out there(ME) looks at you and thinks, “Thank God for them.”",
+      "Because you know how to hype people up without dimming your own light.",
+      "Because you don’t just talk—you show up. Always.",
+      "Because you’ve grown, evolved, healed, and still remained true to your core—and that’s powerful."
+    ];
+
+    let currentReasonIndex = 0;
+    const whyMatterTextElement = document.getElementById('whyMatterText');
+
+    // Function to update the text with a fade effect
+    function updateWhyMatterText() {
+      whyMatterTextElement.style.opacity = 0; // Start fade out
+      setTimeout(() => {
+        whyMatterTextElement.textContent = reasons[currentReasonIndex];
+        whyMatterTextElement.style.opacity = 1; // Fade in
+        currentReasonIndex = (currentReasonIndex + 1) % reasons.length; // Cycle to the next reason
+      }, 500); // Wait for fade out to complete before changing text and fading in
+    }
+
+    // Initial text load
+    updateWhyMatterText();
+
+    // Set interval to change text every 5 seconds (5000 milliseconds)
+    setInterval(updateWhyMatterText, 5000);
+
+    // Flower rain animation logic
+    const flowerContainer = document.getElementById('flowerContainer');
+    const imageCards = document.querySelectorAll('.image-card');
+
+    imageCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const numFlowers = 50; // Number of flowers to generate - Increased density
+        for (let i = 0; i < numFlowers; i++) {
+          const flower = document.createElement('div');
+          flower.classList.add('flower');
+          
+          // Position flowers randomly across the top of the viewport
+          flower.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+          flower.style.top = `-20px`; // Start slightly above the viewport
+          
+          // Random size for variety
+          const size = Math.random() * 8 + 5; // Flower size between 5px and 13px
+          flower.style.width = `${size}px`;
+          flower.style.height = `${size}px`;
+
+          // Random animation delay for staggered effect
+          flower.style.animationDelay = `${Math.random() * 1.5}s`; // Longer delay range
+
+          flowerContainer.appendChild(flower);
+
+          // Remove flower after animation completes to clean up DOM
+          flower.addEventListener('animationend', () => {
+            flower.remove();
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

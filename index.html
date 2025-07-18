@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #ff70d9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 0 0 15px #ff70d9;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 30px;
+      color: #ff9de2;
+    }
+
+    .emoji-line {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .custom-emojis img {
+      height: 50px;
+      margin: 0 10px;
+    }
+
+    .press-key {
+      color: #ff90d9;
+      font-size: 1rem;
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .custom-emojis img {
+        height: 40px;
+      }
+
+      .emoji-line {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 From teenage chaos to twenties crises – Look at you THRIVING!! 🎉</h1>
+  <p>"At least you're consistent :)"</p>
+  <div class="emoji-line">
+    <span class="custom-emojis">
+      <img src="assets/emoji1.png" alt="Hug emoji" />
+      <img src="assets/emoji2.png" alt="Hug emoji" />
+      <img src="assets/emoji3.png" alt="Hug emoji" />
+    </span>
+  </div>
+  <div class="press-key">Press any key to continue...</div>
+
+  <script>
+    // Redirect on any key press
+    document.addEventListener("keydown", () => {
+      window.location.href = "page2.html";
+    });
+
+    // OR, if you only want space key:
+    // document.addEventListener("keydown", (e) => {
+    //   if (e.code === "Space") {
+    //     window.location.href = "page2.html";
+    //   }
+    // });
+  </script>
+</body>
+</html>
+   
